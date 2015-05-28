@@ -3,7 +3,6 @@ import sublime
 import sublime_plugin
 
 # Define constant to know when to continue looping silencing
-initial_delay = 5 * 1000  # 5 seconds
 loop_delay = 60 * 1000  # 1 minute
 settings = {
     'silencing': False,
@@ -13,10 +12,10 @@ settings = {
 # Set up our hooks
 def plugin_loaded():
     """On module load, start silencing completions"""
-    # Wait for a few other plugins to load, then run our cleaner
+    # Run our cleaner immediately
     # DEV: We must use an object, otherwise the local variable wouldn't reach our module one
     settings['silencing'] = True
-    sublime.set_timeout(silence_query_completions, initial_delay)
+    silence_query_completions()
 
 
 def plugin_unloaded():
