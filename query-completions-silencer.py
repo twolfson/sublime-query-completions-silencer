@@ -3,6 +3,7 @@ import sublime
 import sublime_plugin
 
 # Define constant to know when to continue looping silencing
+initial_delay = 500  # 0.5 seconds
 loop_delay = 60 * 1000  # 1 minute
 settings = {
     'silencing': False,
@@ -15,7 +16,7 @@ def plugin_loaded():
     # Run our cleaner immediately
     # DEV: We must use an object, otherwise the local variable wouldn't reach our module one
     settings['silencing'] = True
-    silence_query_completions()
+    sublime.set_timeout(silence_query_completions(), initial_delay)
 
 
 def plugin_unloaded():
