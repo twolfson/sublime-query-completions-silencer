@@ -2,6 +2,10 @@
 
 Silence query completions in Sublime Text
 
+This was built as a companion to [sublime-snippet-destroyer][] to silence any callback based completions (i.e. `EventListener.on_query_completions`)
+
+[sublime-snippet-destroyer]: https://github.com/twolfson/sublime-snippet-destroyer
+
 ## Getting Started
 ### Installation
 This package is available under `query-completions-silencer` inside of [Package Control][], a [Sublime Text][] plugin that allows for easy management of other plugins.
