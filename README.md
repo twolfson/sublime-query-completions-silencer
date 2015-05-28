@@ -22,10 +22,20 @@ import os; path=sublime.packages_path(); (os.makedirs(path) if not os.path.exist
 Packages can be uninstalled via "Package Control: Remove Package" via the command pallete, `ctrl+shift+p` on Windows/Linux, `command+shift+p` on Mac.
 
 ## Documentation
-_(Coming soon)_
+There are no commands provided for this plugin. Upon installation, our silencer will actively remove callbacks for `EventListener.on_query_completions`.
+
+Upon disabling/removal, the silence watcher will be turned off but callbacks will not be restored. Sublime Text must be restarted for full restoration.
 
 ## Examples
-_(Coming soon)_
+Sublime Text comes with CSS and HTML completions built in by default. An example usage would be to set your Syntax to HTML. Then, type:
+
+```html
+strong
+
+str<tab>
+```
+
+When `on_query_completions` are running, this would complete to `<strong></strong>`. When `sublime-query-completions-silencer` is enabled, this completes to `strong`.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality.

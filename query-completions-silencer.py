@@ -1,11 +1,12 @@
 # Load in our dependencies
 import sublime
+import sublime_plugin
 
 # Define constant to know when to continue looping silencing
 initial_delay = 5 * 1000  # 5 seconds
 loop_delay = 60 * 1000  # 1 minute
 settings = {
-    'silencing': False
+    'silencing': False,
 }
 
 
@@ -33,5 +34,5 @@ def silence_query_completions():
     # Otherwise, run our silencer and loop again
     # https://github.com/twolfson/sublime-files/blob/3083.0.0/sublime_plugin.py#L19-L22
     # https://github.com/twolfson/sublime-files/blob/3083.0.0/sublime_plugin.py#L352-L369
-    print('silence2')
+    sublime_plugin.on_query_completions = []
     sublime.set_timeout(silence_query_completions, loop_delay)
